@@ -24,5 +24,25 @@ namespace CurrencyConverter
         {
             InitializeComponent();
         }
+
+        private void SellCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void PurchaseCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void UpdateCourseBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ConvertBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
