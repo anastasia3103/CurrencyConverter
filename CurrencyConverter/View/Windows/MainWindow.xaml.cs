@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CurrencyConverter.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace CurrencyConverter
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CurrencyService _currencyService;
         public MainWindow()
         {
             InitializeComponent();
+            _currencyService = new CurrencyService();
         }
 
         private void SellCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -35,9 +38,11 @@ namespace CurrencyConverter
 
         }
 
-        private void UpdateCourseBtn_Click(object sender, RoutedEventArgs e)
+        private async void UpdateCourseBtn_Click(object sender, RoutedEventArgs e)
         {
-
+           await _currencyService.LoadCurrencyAsync(CurrencyLv);
+            _currencyService.LoadValutes(SellCmb);
+            _currencyService.LoadValutes(PurchaseCmb);
         }
 
         private void ConvertBtn_Click(object sender, RoutedEventArgs e)
