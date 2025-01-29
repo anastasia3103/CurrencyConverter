@@ -48,6 +48,13 @@ namespace CurrencyConverter
         private void ConvertBtn_Click(object sender, RoutedEventArgs e)
         {
 
+            double sellAmount = Convert.ToDouble(SellTb.Text);
+            Valute sellValute = SellCmb.SelectedItem as Valute;
+            Valute buyValute = PurchaseCmb.SelectedItem as Valute;
+
+           PurchaseTb.Text= _currencyService.ConvertValute(sellAmount, sellValute, buyValute);
+
+            _currencyService.SetRatio(SellTbl, PurchaseTbl);
         }
     }
 }
